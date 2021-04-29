@@ -7,7 +7,6 @@ interface WeatherProps {
 
 const Weather: FC<WeatherProps> = ({data}) => {
 
-    const fahrenheit = (data.main.temp * 1.8 - 459.67).toFixed(2);
     const celsius = (data.main.temp - 273.15).toFixed(2);
 
     return (
@@ -27,8 +26,6 @@ const Weather: FC<WeatherProps> = ({data}) => {
                         <div>
                             <p className="heading">temp</p>
                             <div className="title">
-                                <p className="mb-2">{data.main.temp}K</p>
-                                <p className="mb-2">{fahrenheit}<sup>&#8457;</sup></p>
                                 <p>{celsius}<sup>&#8451;</sup></p>
                             </div>
                         </div>
@@ -40,14 +37,12 @@ const Weather: FC<WeatherProps> = ({data}) => {
                             <p className="title">{data.main.humidity}</p>
                         </div>
                     </div>
-
                     <div className="level-item has-text-centered">
                         <div>
                             <p className="heading">pressure</p>
                             <p className="title">{data.main.pressure}</p>
                         </div>
                     </div>
-
                     <div className="level-item has-text-centered">
                         <div>
                             <p className="heading">wind</p>
